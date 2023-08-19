@@ -42,32 +42,22 @@ class Ui_MainWindow(object):
         self.removeFileBtn = QPushButton(self.gridLayoutWidget)
         self.removeFileBtn.setObjectName(u"removeFileBtn")
 
-        self.gridLayout.addWidget(self.removeFileBtn, 1, 3, 1, 1)
+        self.gridLayout.addWidget(self.removeFileBtn, 1, 1, 1, 1)
 
         self.addFileBtn = QPushButton(self.gridLayoutWidget)
         self.addFileBtn.setObjectName(u"addFileBtn")
 
         self.gridLayout.addWidget(self.addFileBtn, 1, 0, 1, 1)
 
-        self.downBtn = QPushButton(self.gridLayoutWidget)
-        self.downBtn.setObjectName(u"downBtn")
-
-        self.gridLayout.addWidget(self.downBtn, 1, 2, 1, 1)
-
-        self.upBtn = QPushButton(self.gridLayoutWidget)
-        self.upBtn.setObjectName(u"upBtn")
-
-        self.gridLayout.addWidget(self.upBtn, 1, 1, 1, 1)
-
         self.mergeBtn = QPushButton(self.gridLayoutWidget)
         self.mergeBtn.setObjectName(u"mergeBtn")
 
-        self.gridLayout.addWidget(self.mergeBtn, 1, 4, 1, 1)
+        self.gridLayout.addWidget(self.mergeBtn, 1, 2, 1, 1)
 
         self.pdfList = QListView(self.gridLayoutWidget)
         self.pdfList.setObjectName(u"pdfList")
 
-        self.gridLayout.addWidget(self.pdfList, 0, 0, 1, 5)
+        self.gridLayout.addWidget(self.pdfList, 0, 0, 1, 3)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -97,8 +87,6 @@ class Ui_MainWindow(object):
         self.actionAbout_Qt.setText(QCoreApplication.translate("MainWindow", u"About Qt", None))
         self.removeFileBtn.setText(QCoreApplication.translate("MainWindow", u"Remove selected file", None))
         self.addFileBtn.setText(QCoreApplication.translate("MainWindow", u"Add files", None))
-        self.downBtn.setText(QCoreApplication.translate("MainWindow", u"Bring selected file down", None))
-        self.upBtn.setText(QCoreApplication.translate("MainWindow", u"Bring selected file up", None))
         self.mergeBtn.setText(QCoreApplication.translate("MainWindow", u"Merge files into one", None))
         self.menuMore_stuff.setTitle(QCoreApplication.translate("MainWindow", u"More stuff", None))
     # retranslateUi

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="3">
+     <item row="1" column="1">
       <widget class="QPushButton" name="removeFileBtn">
        <property name="text">
         <string>Remove selected file</string>
@@ -39,27 +39,13 @@
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QPushButton" name="downBtn">
-       <property name="text">
-        <string>Bring selected file down</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="upBtn">
-       <property name="text">
-        <string>Bring selected file up</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
       <widget class="QPushButton" name="mergeBtn">
        <property name="text">
         <string>Merge files into one</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="5">
+     <item row="0" column="0" colspan="3">
       <widget class="QListView" name="pdfList"/>
      </item>
     </layout>
