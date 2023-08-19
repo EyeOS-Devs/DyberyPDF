@@ -1,8 +1,10 @@
 import sys
 from PySide6.QtWidgets import *
 from PySide6 import QtGui
-from PySide6.QtCore import QTimer, QSize
+from PySide6.QtCore import *
 from uiScripts.ui_Main import Ui_MainWindow
+import pypdf
+import os
 
 license = """
 DyberyPDF Merger
@@ -42,6 +44,26 @@ class Window(QMainWindow, Ui_MainWindow):
         self.centralwidget.resize(event.size())
         self.gridLayoutWidget.resize(QSize(event.size().width() - 19, event.size().height() - 66))
         
+    def mergePDFs(self):
+        filesToMergeR = [self.pdfList.model().index(i, 0) for i in range(self.pdfList.model().rowCount())]
+        #print(filesToMerge)
+        filesToMerge = []
+
+        for file in filesToMergeR:
+            filesToMerge.append(file.data())
+
+        print(filesToMerge)
+        pdfMerger = pypdf.PdfMerger(strict=False)
+
+        for file in filesToMerge:
+            bookmark_name = os.path.splitext(os.path.basename(file))[0]
+            pdfMerger.append(fileobj=open(file, "rb"), import_outline=False, outline_item=bookmark_name)
+
+        filename, filter = QFileDialog.getSaveFileName(parent=self, caption="Save merged PDF file", dir=".", filter="PDF document (*.pdf);;All files (*.*)")
+
+        if filename:
+            pdfMerger.write(fileobj=open(filename, "wb+"))
+            pdfMerger.close()
 
     def closeApp(self):
         self.close()
@@ -65,6 +87,9 @@ class Window(QMainWindow, Ui_MainWindow):
         self.actionAbout_DyberyPDF_Merger.triggered.connect(self.aboutDyberyPDFM)
         self.actionAbout_Qt.triggered.connect(self.aboutQt)
         self.addFileBtn.clicked.connect(self.addFileDialogs)
+        self.mergeBtn.clicked.connect(self.mergePDFs)
+        self.pdfList.setDragDropMode(QAbstractItemView.InternalMove)
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
