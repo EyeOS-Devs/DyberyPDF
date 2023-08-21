@@ -2,4 +2,4 @@
 
 ## Version 0.0.1
 
-- Basic functionality will be implemented.
+- Basic functionality is implemented.

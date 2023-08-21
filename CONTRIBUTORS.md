@@ -7,3 +7,7 @@ DyberyPDF Reader is based on this PDF Viewer example: https://doc.qt.io/qtforpyt
 
 Modified by:
 - Nicolas Lucien (aka lucien-rowan, Tech-FZ)
+
+## DyberyPDF Merger
+
+- Nicolas Lucien (aka lucien-rowan, Tech-FZ)
