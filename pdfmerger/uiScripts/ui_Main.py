@@ -16,9 +16,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QListView, QMainWindow,
-    QMenu, QMenuBar, QPushButton, QSizePolicy,
-    QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QListWidget, QListWidgetItem,
+    QMainWindow, QMenu, QMenuBar, QPushButton,
+    QSizePolicy, QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.mergeBtn, 1, 2, 1, 1)
 
-        self.pdfList = QListView(self.gridLayoutWidget)
+        self.pdfList = QListWidget(self.gridLayoutWidget)
         self.pdfList.setObjectName(u"pdfList")
 
         self.gridLayout.addWidget(self.pdfList, 0, 0, 1, 3)
@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
         self.actionClose.setText(QCoreApplication.translate("MainWindow", u"Close", None))
         self.actionAbout_DyberyPDF_Merger.setText(QCoreApplication.translate("MainWindow", u"About DyberyPDF Merger", None))
         self.actionAbout_Qt.setText(QCoreApplication.translate("MainWindow", u"About Qt", None))
-        self.removeFileBtn.setText(QCoreApplication.translate("MainWindow", u"Remove selected file", None))
+        self.removeFileBtn.setText(QCoreApplication.translate("MainWindow", u"Remove selected files", None))
         self.addFileBtn.setText(QCoreApplication.translate("MainWindow", u"Add files", None))
         self.mergeBtn.setText(QCoreApplication.translate("MainWindow", u"Merge files into one", None))
         self.menuMore_stuff.setTitle(QCoreApplication.translate("MainWindow", u"More stuff", None))

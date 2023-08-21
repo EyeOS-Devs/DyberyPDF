@@ -36,8 +36,6 @@ class Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.connectSignalsSlots()
         self.pdfFilesToMerge = []
-        self.pdfmodel = QtGui.QStandardItemModel()
-        self.pdfList.setModel(self.pdfmodel)
 
     def resizeEvent(self, event: QtGui.QResizeEvent):
         super().resizeEvent(event)
@@ -46,7 +44,8 @@ class Window(QMainWindow, Ui_MainWindow):
         
     def mergePDFs(self):
         filesToMergeR = [self.pdfList.model().index(i, 0) for i in range(self.pdfList.model().rowCount())]
-        #print(filesToMerge)
+        #filesToMergeR = self.pdfList.items()
+        print(filesToMergeR)
         filesToMerge = []
 
         for file in filesToMergeR:
@@ -79,8 +78,10 @@ class Window(QMainWindow, Ui_MainWindow):
 
         if filenames:
             for filename in filenames:
-                item = QtGui.QStandardItem(filename)
-                self.pdfmodel.appendRow(item)
+                self.pdfList.addItem(filename)
+
+    def removeSelectedFiles(self):
+        self.pdfList.takeItem(self.pdfList.currentIndex().row())
 
     def connectSignalsSlots(self):
         self.actionClose.triggered.connect(self.closeApp)
@@ -89,7 +90,7 @@ class Window(QMainWindow, Ui_MainWindow):
         self.addFileBtn.clicked.connect(self.addFileDialogs)
         self.mergeBtn.clicked.connect(self.mergePDFs)
         self.pdfList.setDragDropMode(QAbstractItemView.InternalMove)
-        
+        self.removeFileBtn.clicked.connect(self.removeSelectedFiles)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
