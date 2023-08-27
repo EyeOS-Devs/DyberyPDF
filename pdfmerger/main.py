@@ -6,8 +6,10 @@ from uiScripts.ui_Main import Ui_MainWindow
 import pypdf
 import os
 
-license = """
-DyberyPDF Merger
+dyberyPdfMergerVer = "0.0.1"
+
+license = f"""
+DyberyPDF Merger, Version {dyberyPdfMergerVer}
 Copyright (C) 2023 DyberyOS Developers
 
 This program is free software: you can redistribute it and/or modify
