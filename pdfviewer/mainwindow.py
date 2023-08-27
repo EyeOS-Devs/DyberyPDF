@@ -16,13 +16,15 @@ from ui_mainwindow import Ui_MainWindow
 
 ZOOM_MULTIPLIER = math.sqrt(2.0)
 
-license = """
+dyberyPdfViewerVer = "0.0.1"
+
+license = f"""
 Based on the PySide6 PDF Example: https://doc.qt.io/qtforpython-6/examples/example_pdfwidgets_pdfviewer.html
                           
 PDF Viewer Example
 Copyright (C) 2022 The Qt Company Ltd.
 
-DyberyPDF Reader
+DyberyPDF Reader, Version {dyberyPdfViewerVer}
 Copyright (C) 2023 DyberyOS Developers
 
 This program is free software: you can redistribute it and/or modify
